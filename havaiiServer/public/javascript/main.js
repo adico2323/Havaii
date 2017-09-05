@@ -4,13 +4,16 @@ var havaiiApp = angular.module('havaiiApp', ["ngRoute"]);
 havaiiApp.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "main.html"
+        redirectTo  : "/events"
     })
     .when("/personalZone", {
         templateUrl : "../views/partials/personal_zone.html"
     })
     .when("/events", {
         templateUrl : "../views/partials/events.html"
+    })
+    .otherwise({
+        redirectTo  : "/events"
     });
 });
 
@@ -107,9 +110,6 @@ havaiiApp.controller('havaiiController', function ($scope) {
           }
   ];
 
-    $scope.selectedLocation = $scope.locations[0].label;
-    $scope.selectedType = $scope.types[0].label;
-    $scope.selectedDate = $scope.dates[0].label;
 
     $scope.showAll = function () {
         $scope.selectedLocation = "";
