@@ -23,7 +23,7 @@ havaiiApp.controller('havaiiController', function ($scope) {
 });*/
 
 // Define the `PhoneListController` controller on the `phonecatApp` module
-havaiiApp.controller('havaiiController', function ($scope) {
+havaiiApp.controller('havaiiController', function ($scope, myService) {
 
 
     $scope.eventList = [
