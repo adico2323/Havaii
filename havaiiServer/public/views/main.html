@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html ng-app="havaiiApp">
+
+<head>
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+    <link href='../stylesheets/main.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="havaiiController">
+    <nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fa fa-user" aria-hidden="true"></i> איזור אישי
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-home" aria-hidden="true"></i> עמוד הבית
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <div id="searchBlock">
+                <select class="custom-select" ng-options="location.label for location in locations" ng-model="selectedLocation" value="בחר מקום"></select>
+                <select class="custom-select" ng-options="type.label for type in types" ng-model="selectedType" value="{{selectedType}}" ></select>
+<!--                <select class="custom-select" ng-options="date.label for date in dates" ng-model="selectedDate" value="{{selectedDate}}"
+                 ></select>-->
+                 <input type="date" ng-model="selectedDate">
+                <br> <br>
+                <button type="button" class="btn btn-raised btn-primary" ng-click="showAll()">הצג הכל</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        {{selectedLocation}}
+        <div class="row">
+            <div id="searchResults">
+                <table class="table table-condensed">
+                    <tr>
+                        <td ng-repeat="title in tableTitle">
+                           <b>{{title.displayName}}</b> 
+                        </td>
+                    </tr>
+                    <tr ng-repeat="event in eventList | filter:{location:selectedLocation.label}| filter:{type:selectedType.label}|filter:{date:selectedDate.label}">
+                        <td>
+                            {{event.date}}
+                        </td>
+                        <td>
+                            {{event.type}}
+                        </td>
+                        <td>
+                            {{event.artist}}
+                        </td>
+                        <td>
+                            {{event.location}}
+                        </td>
+                        <td>
+                            {{event.freeSeat}}
+                        </td>
+                        <td>
+                            {{event.benefits}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script type="text/javascript" src="../javascript/main.js"></script>
+
+</body>
+
+</html>
