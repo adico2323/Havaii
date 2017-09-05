@@ -1,5 +1,21 @@
 // Define the `havaii` module
-var havaiiApp = angular.module('havaiiApp', []);
+var havaiiApp = angular.module('havaiiApp', ["ngRoute"]);
+
+havaiiApp.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        redirectTo  : "/events"
+    })
+    .when("/personalZone", {
+        templateUrl : "../views/partials/personal_zone.html"
+    })
+    .when("/events", {
+        templateUrl : "../views/partials/events.html"
+    })
+    .otherwise({
+        redirectTo  : "/events"
+    });
+});
 
 /*
 havaiiApp.controller('havaiiController', function ($scope) {
@@ -41,6 +57,7 @@ havaiiApp.controller('havaiiController', function ($scope, myService) {
             benefits: '1+1',
             price: '100'}];
 
+    
     $scope.locations = [{
         id: 1,
         label: 'תל-אביב'

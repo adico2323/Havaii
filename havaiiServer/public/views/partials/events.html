@@ -1,0 +1,51 @@
+<div class="row">
+            <div id="searchBlock">
+                <select class="custom-select" ng-options="location.label for location in locations" ng-model="selectedLocation" value="בחר מקום"></select>
+                <select class="custom-select" ng-options="type.label for type in types" ng-model="selectedType" value="{{selectedType}}"></select>
+                <!--                <select class="custom-select" ng-options="date.label for date in dates" ng-model="selectedDate" value="{{selectedDate}}"
+                 ></select>-->
+                <input type="date" ng-model="selectedDate">
+                <br>
+                <br>
+                <button type="button" class="btn btn-raised btn-primary" ng-click="showAll()">הצג הכל</button>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <h1>אירועים לחייל השבוז</h1>
+        <div class="row">
+            <div id="searchResults">
+                <table class="table table-condensed">
+                    <tr>
+                        <td ng-repeat="title in tableTitle">
+                            <b>{{title.displayName}}</b>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="event in eventList | filter:{location:selectedLocation.label}| filter:{type:selectedType.label}|filter:{date:selectedDate.label}">
+                        <td>
+                            {{event.date}}
+                        </td>
+                        <td>
+                            {{event.type}}
+                        </td>
+                        <td>
+                            {{event.artist}}
+                        </td>
+                        <td>
+                            {{event.location}}
+                        </td>
+                        <td>
+                            {{event.freeSeat}}
+                        </td>
+                        <td>
+                            {{event.benefits}}
+                        </td>
+                        <td>
+                            {{event.price}} &nbsp;
+                            <button type="button" class="btn btn-raised btn-primary" ng-click="addEvent(event)"> הוסף לסל האירועים</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
