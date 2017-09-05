@@ -1,6 +1,11 @@
 // Define the `havaii` module
 var havaiiApp = angular.module('havaiiApp', []);
 
+/*
+havaiiApp.controller('havaiiController', function ($scope) {
+    
+});*/
+
 // Define the `PhoneListController` controller on the `phonecatApp` module
 havaiiApp.controller('havaiiController', function ($scope) {
 
@@ -12,7 +17,8 @@ havaiiApp.controller('havaiiController', function ($scope) {
             artist: 'אדיר מילר',
             location: 'חולון',
             freeSeat: '50',
-            benefits: '1+1'
+            benefits: '1+1',
+            price: '100'
 
 
     }, {
@@ -21,9 +27,19 @@ havaiiApp.controller('havaiiController', function ($scope) {
             artist: 'אורי חזקיה',
             location: 'תל-אביב',
             freeSeat: '50',
-            benefits: '1+1'
+            benefits: '1+1',
+            price: '100'
     }
   ];
+    
+    $scope.savedEvents=[{
+            date: '9/11/2017',
+            type: 'הופעה',
+            artist: 'אורי חזקיה',
+            location: 'תל-אביב',
+            freeSeat: '50',
+            benefits: '1+1',
+            price: '100'}];
 
     $scope.locations = [{
         id: 1,
@@ -70,6 +86,10 @@ havaiiApp.controller('havaiiController', function ($scope) {
         {
             displayName: 'הטבות לחייל',
             jsonName: 'benefits',
+          },
+        {
+            displayName: 'מחיר',
+            jsonName: 'price',
           }
   ];
 
@@ -78,8 +98,12 @@ havaiiApp.controller('havaiiController', function ($scope) {
     $scope.selectedDate = $scope.dates[0].label;
 
     $scope.showAll = function () {
-            $scope.selectedLocation = "";
-            $scope.selectedType = "";
-            $scope.selectedDate = "";
-        }
+        $scope.selectedLocation = "";
+        $scope.selectedType = "";
+        $scope.selectedDate = "";
+    }
+    
+    $scope.addEvent = function(event){
+        
+}
 });
