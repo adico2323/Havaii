@@ -1,13 +1,20 @@
 <div class="row">
             <div id="searchBlock">
+                <h2>חפש לפי..</h2>
+                
+                <label>עיר</label>
                 <select class="custom-select" ng-options="location.label for location in locations" ng-model="selectedLocation" value="בחר מקום"></select>
+                
+                <label>סגנון האירוע</label>
                 <select class="custom-select" ng-options="type.label for type in types" ng-model="selectedType" value="{{selectedType}}"></select>
-                <!--                <select class="custom-select" ng-options="date.label for date in dates" ng-model="selectedDate" value="{{selectedDate}}"
-                 ></select>-->
+                
+                <label>תאריך</label>
                 <input type="date" ng-model="selectedDate">
+                
                 <br>
                 <br>
-                <button type="button" class="btn btn-raised btn-primary" ng-click="showAll()">הצג הכל</button>
+                <hr>
+                <button type="button" class="btn btn-raised btn-primary" ng-click="showAll()">הצג את כל האירועים</button>
             </div>
         </div>
         <br>
