@@ -7,7 +7,7 @@ havaiiApp.controller('havaiiController', function ($scope) {
 });*/
 
 // Define the `PhoneListController` controller on the `phonecatApp` module
-havaiiApp.controller('havaiiController', function ($scope) {
+havaiiApp.controller('havaiiController', function ($scope, myService) {
 
 
     $scope.eventList = [
@@ -93,9 +93,6 @@ havaiiApp.controller('havaiiController', function ($scope) {
           }
   ];
 
-    $scope.selectedLocation = $scope.locations[0].label;
-    $scope.selectedType = $scope.types[0].label;
-    $scope.selectedDate = $scope.dates[0].label;
 
     $scope.showAll = function () {
         $scope.selectedLocation = "";
