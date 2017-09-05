@@ -1,20 +1,20 @@
 // Define the `havaii` module
 var havaiiApp = angular.module('havaiiApp', ["ngRoute"]);
 
-havaiiApp.config(function($routeProvider) {
+havaiiApp.config(function ($routeProvider) {
     $routeProvider
-    .when("/", {
-        redirectTo  : "/events"
-    })
-    .when("/personalZone", {
-        templateUrl : "../views/partials/personal_zone.html"
-    })
-    .when("/events", {
-        templateUrl : "../views/partials/events.html"
-    })
-    .otherwise({
-        redirectTo  : "/events"
-    });
+        .when("/", {
+            redirectTo: "/events"
+        })
+        .when("/personalZone", {
+            templateUrl: "../views/partials/personal_zone.html"
+        })
+        .when("/events", {
+            templateUrl: "../views/partials/events.html"
+        })
+        .otherwise({
+            redirectTo: "/events"
+        });
 });
 
 /*
@@ -47,17 +47,18 @@ havaiiApp.controller('havaiiController', function ($scope, myService) {
             price: '100'
     }
   ];
-    
-    $scope.savedEvents=[{
-            date: '9/11/2017',
-            type: 'הופעה',
-            artist: 'אורי חזקיה',
-            location: 'תל-אביב',
-            freeSeat: '50',
-            benefits: '1+1',
-            price: '100'}];
 
-    
+    $scope.savedEvents = [{
+        date: '9/11/2017',
+        type: 'הופעה',
+        artist: 'אורי חזקיה',
+        location: 'תל-אביב',
+        freeSeat: '50',
+        benefits: '1+1',
+        price: '100'
+    }];
+
+
     $scope.locations = [{
         id: 1,
         label: 'תל-אביב'
@@ -109,6 +110,8 @@ havaiiApp.controller('havaiiController', function ($scope, myService) {
             jsonName: 'price',
           }
   ];
+    
+    $scope.wishList = [];
 
 
     $scope.showAll = function () {
@@ -116,8 +119,12 @@ havaiiApp.controller('havaiiController', function ($scope, myService) {
         $scope.selectedType = "";
         $scope.selectedDate = "";
     }
+
+    $scope.addEvent = function (event) {
+        $scope.wishList.push(event);
+    }
     
-    $scope.addEvent = function(event){
-        
-}
+    $scope.removeFromWishList = function(event) {
+        $scope.wishList.remove(event);
+    }
 });

@@ -1,10 +1,9 @@
 body {
-    direction: rtl;
     font-family: 'Alef';
 }
 
 .badge {
     background-color: deepskyblue !important;
-    float: left;
+    float: right;
 }
 
