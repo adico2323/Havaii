@@ -1,5 +1,18 @@
 // Define the `havaii` module
-var havaiiApp = angular.module('havaiiApp', []);
+var havaiiApp = angular.module('havaiiApp', ["ngRoute"]);
+
+havaiiApp.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.html"
+    })
+    .when("/personalZone", {
+        templateUrl : "../views/partials/personal_zone.html"
+    })
+    .when("/events", {
+        templateUrl : "../views/partials/events.html"
+    });
+});
 
 // Define the `PhoneListController` controller on the `phonecatApp` module
 havaiiApp.controller('havaiiController', function ($scope) {
@@ -25,6 +38,7 @@ havaiiApp.controller('havaiiController', function ($scope) {
     }
   ];
 
+    
     $scope.locations = [{
         id: 1,
         label: 'תל-אביב'
