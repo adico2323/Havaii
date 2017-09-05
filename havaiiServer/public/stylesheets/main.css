@@ -3,4 +3,8 @@ body {
     font-family: 'Alef';
 }
 
+.badge {
+    background-color: deepskyblue !important;
+    float: left;
+}
 
